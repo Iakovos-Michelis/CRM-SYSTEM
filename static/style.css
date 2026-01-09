@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Intrepid', sans-serif !important;
+    background-color: #ffffff;
+    color: #2d2d2d;
+}
+
+.navbar {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+    padding-bottom: 0px !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+    align-self: center !important;
+    padding: 0.25rem 0.75rem !important;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22%3E%3Cpath stroke=%22white%22 stroke-linecap=%22round%22 stroke-miterlimit=%2210%22 stroke-width=%222%22 d=%22M4 7h22M4 15h22M4 23h22%22/%3E%3C/svg%3E') !important;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+.nav-link:hover {
+    color: #e8e8f0 !important;
+}
+
+.navbar-collapse {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+    padding: 15px !important;
+    margin-top: 0px !important;
+    border-radius: 0px !important;
+}
+
+.navbar-nav {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+}
+
+.navbar-nav .nav-item {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    padding: 10px 15px !important;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-primary, .btn {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+    border: none !important;
+    font-family: 'Intrepid', sans-serif !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover, .btn:hover {
+    background-color: #1B41FF !important;
+}
+
+.card {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+.card h3, .card p {
+    color: #ffffff !important;
+}
+
+.table {
+    background-color: #ffffff;
+    color: #2d2d2d;
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+.table thead {
+    background-color: rgba(27, 65, 255, 0.58) !important;
+    color: #ffffff !important;
+}
+
+.table td, .table th {
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+input, select, textarea {
+    border: 1px solid #d0d0d0 !important;
+    padding: 10px !important;
+    border-radius: 4px !important;
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Intrepid', sans-serif !important;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Intrepid', sans-serif !important;
+    color: #2d2d2d;
+}
+
+.container {
+    font-family: 'Intrepid', sans-serif !important;
+}

@@ -1,0 +1,46 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+    <div style="max-width: 500px; margin: 50px auto; padding: 20px;">
+        <h1 style="text-align: center; margin-bottom: 30px;">EDIT USER</h1>
+
+        {% for message in get_flashed_messages() %}
+            <p style="color: green; text-align: center;">{{ message }}</p>
+        {% endfor %}
+
+        <form method="post" novalidate>
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" class="form-control" value="{{ user['first_name'] }}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" class="form-control" value="{{ user['last_name'] }}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="role">Category:</label>
+                <select id="role" name="role" class="form-control" required>
+                    <option value="employee" {% if user['role'] == 'employee' %}selected{% endif %}>Employee</option>
+                    <option value="manager" {% if user['role'] == 'manager' %}selected{% endif %}>Manager</option>
+                    <option value="admin" {% if user['role'] == 'admin' %}selected{% endif %}>Admin</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ user['email'] }}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" class="form-control" placeholder="Type here" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Save</button>
+        </form>
+    </div>
+{% endblock %}

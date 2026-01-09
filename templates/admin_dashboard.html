@@ -1,0 +1,37 @@
+{% extends 'base_admin.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+    <div style="padding: 20px;">
+        <h1 style="text-align: center; margin-bottom: 30px;">ADMIN DASHBOARD</h1>
+
+        <div style="margin-bottom: 20px; text-align: center;">
+            <a href="/add/user" class="btn btn-primary">ADD USER</a>
+        </div>
+
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <h4 style="background-color: rgba(27, 65, 255, 0.58); color: white; padding: 15px; margin: 0;">USER MANAGEMENT</h4>
+            <table class="table" style="margin: 0;">
+                <thead>
+                    <tr style="background-color: rgba(27, 65, 255, 0.58); color: white;">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user['first_name'] }}</td>
+                            <td>{{ user['last_name'] }}</td>
+                            <td>{{ user['role'] }}</td>
+                            <td><a href="/edit/user/{{ user['uid'] }}" class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">Edit</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
