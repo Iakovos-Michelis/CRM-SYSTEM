@@ -2,11 +2,12 @@ from flask import Flask, request, render_template, flash, session, redirect
 import sqlite3 
 import hashlib 
 from functools import wraps
-from datetime import datetime, timedelta
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = "crm_secret_key_2025"
 
+# Check user role
 def roles_permitted(roles):
     def decorator(f):
         @wraps(f)
@@ -19,11 +20,13 @@ def roles_permitted(roles):
         return wrapper
     return decorator
 
+# Open database
 def get_db_conn():
     db = sqlite3.connect('crm.db')
     db.row_factory = sqlite3.Row
     return db 
 
+# Create tables
 def initialize_db():
     db = get_db_conn()
     cursor = db.cursor() 
@@ -86,11 +89,13 @@ def initialize_db():
     db.commit()
     db.close()
 
+# Encrypt password
 def hash_password(username, password):
     pw = username + password
     hashed = hashlib.sha512(pw.encode('utf-8')).hexdigest()
     return hashed
 
+# Redirect to dashboard
 @app.route('/')
 def home():
     if 'uid' in session:
@@ -102,6 +107,7 @@ def home():
             return redirect('/admin')
     return redirect('/login')
 
+# Login page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -137,11 +143,13 @@ def login():
     
     return render_template('login_form.html')
 
+# Logout
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/login')
 
+# Employee dashboard
 @app.route('/employee')
 @roles_permitted(['employee'])
 def employee():
@@ -178,6 +186,7 @@ def employee():
                          contacts_week=contacts_week,
                          contacts_day=contacts_day)
 
+# Manager dashboard
 @app.route('/manager')
 @roles_permitted(['manager'])
 def manager():
@@ -208,6 +217,7 @@ def manager():
                          not_responding=not_responding,
                          categories=categories)
 
+# Admin dashboard
 @app.route('/admin')
 @roles_permitted(['admin'])
 def admin():
@@ -220,6 +230,7 @@ def admin():
     
     return render_template('admin_dashboard.html', users=users)
 
+# Customer list
 @app.route('/customers')
 @roles_permitted(['employee'])  
 def customers():
@@ -229,6 +240,7 @@ def customers():
     db.close()
     return render_template('customers.html', customers=all_customers)
 
+# Add customer
 @app.route('/add/customer', methods=['GET', 'POST'])
 @roles_permitted(['employee'])
 def add_customer():
@@ -249,6 +261,7 @@ def add_customer():
     else:
         return render_template('add_customer.html')
 
+# Edit customer
 @app.route('/edit/customer/<int:cid>', methods=['GET', 'POST'])
 @roles_permitted(['employee'])
 def edit_customer(cid):
@@ -279,6 +292,7 @@ def edit_customer(cid):
         db.close()
         return render_template('edit_customer.html', customer=customer)
 
+# Communication
 @app.route('/communication/<int:cid>', methods=['GET', 'POST'])
 @roles_permitted(['employee'])
 def communication(cid):
@@ -303,6 +317,7 @@ def communication(cid):
     
     return render_template('communication.html', comments=comments, customer=customer)
 
+# Add user
 @app.route('/add/user', methods=['GET', 'POST'])
 @roles_permitted(['admin'])
 def add_user():
@@ -338,6 +353,7 @@ def add_user():
     else:
         return render_template('add_user.html')
 
+# Edit user
 @app.route('/edit/user/<int:uid>', methods=['GET', 'POST'])
 @roles_permitted(['admin'])
 def edit_user(uid):
@@ -361,6 +377,7 @@ def edit_user(uid):
         user = cursor.execute("SELECT * FROM users WHERE uid=?", (uid,)).fetchone()
         db.close()
         return render_template('edit_user.html', user=user)
+
 
 if __name__ == '__main__':
     initialize_db()

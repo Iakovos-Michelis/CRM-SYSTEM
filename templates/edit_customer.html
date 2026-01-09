@@ -3,25 +3,33 @@
 {% block title %}Edit Customer{% endblock %}
 
 {% block content %}
+
+    <!-- Form container -->
     <div style="max-width: 500px; margin: 50px auto; padding: 20px;">
         <h1 style="text-align: center; margin-bottom: 30px;">EDIT CUSTOMER</h1>
 
+        <!-- Customer form -->
         <form method="post" novalidate>
+
+            <!-- First name field -->
             <div class="form-group">
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name" class="form-control" value="{{ customer['first_name'] }}" required />
             </div>
 
+            <!-- Last name field -->
             <div class="form-group">
                 <label for="last_name">Last Name:</label>
                 <input type="text" id="last_name" name="last_name" class="form-control" value="{{ customer['last_name'] }}" required />
             </div>
 
+            <!-- Email field -->
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" class="form-control" value="{{ customer['email'] }}" required />
             </div>
 
+            <!-- Category dropdown -->
             <div class="form-group">
                 <label for="status">Category:</label>
                 <select id="status" name="status" class="form-control" required>
@@ -32,13 +40,18 @@
                 </select>
             </div>
 
+            <!-- Comment field -->
             <div class="form-group">
                 <label for="comment">Comment:</label>
                 <textarea id="comment" name="comment" class="form-control" placeholder="Type here" rows="4"></textarea>
             </div>
 
+            <!-- Buttons -->
             <div style="display: flex; gap: 10px; margin-top: 20px;">
+
+                <!-- Save button -->
                 <button type="submit" class="btn btn-primary" style="flex: 1;">Save</button>
+                <!-- Communication button -->
                 <a href="/communication/{{ customer['cid'] }}" class="btn btn-primary" style="flex: 1; text-align: center; padding: 10px;">Communication</a>
             </div>
         </form>

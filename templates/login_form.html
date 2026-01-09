@@ -3,29 +3,38 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+
+    <!-- Login container -->
     <div style="max-width: 400px; margin: 50px auto; padding: 20px;">
         <h1 style="text-align: center; margin-bottom: 30px;">LOG IN</h1>
 
+        <!-- Error messages -->
         {% for message in get_flashed_messages() %}
             <p style="color: red; text-align: center;">{{ message }}</p>
         {% endfor %}
 
+        <!-- Login form -->
         <form method="post" novalidate>
+
+            <!-- Username field -->
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control" placeholder="Username" value="{{ username }}" required />
             </div>
-
+            
+            <!-- Password field -->
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password" required />
             </div>
-
+            
+            <!-- "Remember me" checkbox -->
             <div class="form-group">
                 <input type="checkbox" id="remember" name="remember" />
                 <label for="remember" style="margin-top: 0;">Remember Me</label>
             </div>
 
+            <!-- Submit button -->
             <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Log In</button>
         </form>
     </div>

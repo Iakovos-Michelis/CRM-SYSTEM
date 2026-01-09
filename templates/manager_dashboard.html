@@ -4,10 +4,14 @@
 
 {% block content %}
     <div style="padding: 20px;">
+
+        <!-- Page title -->
         <h1 style="text-align: center; margin-bottom: 30px;">MANAGER DASHBOARD</h1>
 
+        <!-- Analytics grid -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
-            <!-- Contacts per Employee -->
+            
+            <!-- Table 1: Contacts per Employee -->
             <div class="card" style="padding: 0; overflow: hidden;">
                 <h4 style="background-color: rgba(27, 65, 255, 0.58); color: white; padding: 15px; margin: 0;">Contacts per Employee</h4>
                 <table class="table" style="margin: 0;">
@@ -28,7 +32,7 @@
                 </table>
             </div>
 
-            <!-- Customers Not Contacted in 7 days -->
+            <!-- Table 2: Customers Not Contacted -->
             <div class="card" style="padding: 0; overflow: hidden;">
                 <h4 style="background-color: rgba(27, 65, 255, 0.58); color: white; padding: 15px; margin: 0;">Customers Not Contacted in 7 days</h4>
                 <table class="table" style="margin: 0;">
@@ -49,7 +53,7 @@
                 </table>
             </div>
 
-            <!-- Customers Not Responding -->
+            <!-- Table 3: Customers Not Responding -->
             <div class="card" style="padding: 0; overflow: hidden;">
                 <h4 style="background-color: rgba(27, 65, 255, 0.58); color: white; padding: 15px; margin: 0;">Customers Not Responding (3+ Contacts)</h4>
                 <table class="table" style="margin: 0;">
@@ -70,7 +74,7 @@
                 </table>
             </div>
 
-            <!-- Customers by Category -->
+            <!-- Table 4: Customers by Category -->
             <div class="card" style="padding: 0; overflow: hidden;">
                 <h4 style="background-color: rgba(27, 65, 255, 0.58); color: white; padding: 15px; margin: 0;">Customers by Category</h4>
                 <table class="table" style="margin: 0;">

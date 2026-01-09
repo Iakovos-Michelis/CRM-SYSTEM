@@ -4,12 +4,16 @@
 
 {% block content %}
     <div style="padding: 20px;">
+
+        <!-- Page title -->
         <h1 style="text-align: center; margin-bottom: 30px;">ADMIN DASHBOARD</h1>
 
+        <!-- Add user button -->
         <div style="margin-bottom: 20px; text-align: center;">
             <a href="/add/user" class="btn btn-primary">ADD USER</a>
         </div>
 
+        <!-- Users table -->
         <div class="card" style="padding: 0; overflow: hidden;">
             <h4 style="background-color: rgba(27, 65, 255, 0.58); color: white; padding: 15px; margin: 0;">USER MANAGEMENT</h4>
             <table class="table" style="margin: 0;">
@@ -27,6 +31,7 @@
                             <td>{{ user['first_name'] }}</td>
                             <td>{{ user['last_name'] }}</td>
                             <td>{{ user['role'] }}</td>
+                            <!-- Edit button -->
                             <td><a href="/edit/user/{{ user['uid'] }}" class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">Edit</a></td>
                         </tr>
                     {% endfor %}

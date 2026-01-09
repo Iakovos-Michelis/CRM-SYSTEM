@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     allForms.forEach(currentForm => {
         currentForm.addEventListener('submit', function(e) {
+            
+            // Get required fields
             const requiredFields = currentForm.querySelectorAll('input[required], select[required], textarea[required]');
             let formIsValid = true;
             
+            // Check if empty
             requiredFields.forEach(field => {
                 if (field.value.trim() === '') {
                     field.style.borderColor = '#d9534f';
@@ -17,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
+            // Stop if invalid
             if (!formIsValid) {
                 e.preventDefault();
                 alert('All fields must be completed before submission');

@@ -4,12 +4,16 @@
 
 {% block content %}
     <div style="padding: 20px;">
+
+        <!-- Page title -->
         <h1 style="text-align: center; margin-bottom: 30px;">CUSTOMER LIST</h1>
 
+        <!-- Add customer button -->
         <div style="margin-bottom: 20px; text-align: center;">
             <a href="/add/customer" class="btn btn-primary">ADD CUSTOMER</a>
         </div>
 
+        <!-- Customers table -->
         <div class="card" style="padding: 0; overflow: hidden;">
             <table class="table" style="margin: 0;">
                 <thead>
@@ -26,6 +30,7 @@
                             <td>{{ customer['first_name'] }}</td>
                             <td>{{ customer['last_name'] }}</td>
                             <td>{{ customer['last_contact_date'] }}</td>
+                            <!-- Edit button -->
                             <td><a href="/edit/customer/{{ customer['cid'] }}" class="btn btn-primary" style="padding: 5px 10px; font-size: 12px;">Edit</a></td>
                         </tr>
                     {% endfor %}

@@ -4,30 +4,39 @@
 
 {% block content %}
     <div style="padding: 20px;">
+
+        <!-- Page title -->
         <h1 style="text-align: center; margin-bottom: 30px;">EMPLOYEE DASHBOARD</h1>
 
+        <!-- Statistics grid -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+            
+            <!-- Card 1: Customers Added -->
             <div class="card" style="text-align: center;">
                 <h3>Customers Added</h3>
                 <p style="font-size: 36px; font-weight: bold;">{{ customers_added }}</p>
             </div>
 
+            <!-- Card 2: Total Contacts Month -->
             <div class="card" style="text-align: center;">
                 <h3>Total Contacts/Month</h3>
                 <p style="font-size: 36px; font-weight: bold;">{{ contacts_month }}</p>
             </div>
 
+            <!-- Card 3: Total Contacts Week -->
             <div class="card" style="text-align: center;">
                 <h3>Total Contacts/Week</h3>
                 <p style="font-size: 36px; font-weight: bold;">{{ contacts_week }}</p>
             </div>
 
+            <!-- Card 4: Total Contacts Day -->
             <div class="card" style="text-align: center;">
                 <h3>Total Contacts/Day</h3>
                 <p style="font-size: 36px; font-weight: bold;">{{ contacts_day }}</p>
             </div>
         </div>
 
+        <!-- Customer list button -->
         <div style="text-align: center;">
             <a href="/customers" class="btn btn-primary" style="padding: 10px 30px; font-size: 16px;">CUSTOMER LIST</a>
         </div>

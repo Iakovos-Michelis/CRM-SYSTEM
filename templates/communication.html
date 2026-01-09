@@ -3,17 +3,26 @@
 {% block title %}Communication{% endblock %}
 
 {% block content %}
+
+    <!-- Communication container -->
     <div style="max-width: 600px; margin: 50px auto; padding: 20px;">
         <h1 style="text-align: center; margin-bottom: 30px;">COMMUNICATION</h1>
 
+        <!-- Customer name -->
         <h3 style="margin-bottom: 20px;">Customer: {{ customer['first_name'] }} {{ customer['last_name'] }}</h3>
 
+        <!-- Comments display -->
         <div class="card" style="padding: 20px; margin-bottom: 20px; max-height: 400px; overflow-y: auto;">
             {% if comments %}
+
+                <!-- Comment list -->
                 {% for comment in comments %}
                     <div style="margin-bottom: 15px; padding: 10px; background-color: rgba(27, 65, 255, 0.58); color: white; border-radius: 5px;">
+                        <!-- Sender name -->
                         <strong>{{ comment['first_name'] }} {{ comment['last_name'] }}</strong>
+                        <!-- Message text -->
                         <p style="margin: 5px 0;">{{ comment['comment_text'] }}</p>
+                        <!-- Timestamp -->
                         <small>{{ comment['created_at'] }}</small>
                     </div>
                 {% endfor %}
@@ -22,11 +31,14 @@
             {% endif %}
         </div>
 
+        <!-- Message form -->
         <form method="post" novalidate>
+            <!-- Comment input -->
             <div class="form-group">
                 <textarea name="comment" class="form-control" placeholder="Type here" rows="4" required></textarea>
             </div>
-
+            
+            <!-- Send button -->
             <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
         </form>
     </div>
